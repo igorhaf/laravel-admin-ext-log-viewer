@@ -30,7 +30,10 @@ class LogController extends Controller
                 'nextUrl'   => $viewer->getNextPageUrl(),
                 'filePath'  => $viewer->getFilePath(),
                 'size'      => static::bytesToHuman($viewer->getFilesize()),
-            ]));
+            ]))->breadcrumb(
+                    ['text' => 'Logs de depuração'],
+                    ['text' => 'Listando']
+                );
 
             $content->header($viewer->getFilePath());
         });
